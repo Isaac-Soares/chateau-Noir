@@ -1,0 +1,514 @@
+/* ========================================= */
+/* 1. PALETA & TIPOGRAFIA */
+/* ========================================= */
+
+:root {
+    --cor-primaria: #0b0b0b; /* preto */
+    --cor-secundaria: #1a1a1a; /* cinza escuro */
+    --cor-destaque: #D4AF37; /* dourado */
+    --cor-texto: #f5f5f5;
+    --cor-texto-sec: #b8b8b8;
+
+    --fonte-titulo: 'Playfair Display', serif;
+    --fonte-corpo: 'Roboto', sans-serif;
+}
+
+/* ==================== FUNDOS GLOBAIS ==================== */
+html, body {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto);
+    font-family: var(--fonte-corpo);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* ========================================= */
+/* 2. NAVBAR */
+/* ========================================= */
+
+.navbar {
+    padding: 20px 0;
+    transition: all .4s ease;
+    display: flex;
+    align-items: center;
+}
+
+.transparent-nav {
+    background: transparent !important;
+    box-shadow: none;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.88) !important;
+    backdrop-filter: blur(6px);
+    padding: 10px 0;
+}
+
+/* Logo */
+.logo {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+/* Texto da logo */
+.logo-text {
+    font-family: var(--fonte-titulo);
+    font-size: 2.2rem;
+    color: var(--cor-destaque);
+    letter-spacing: 2px;
+    margin-left: 10px;
+}
+
+/* Menu */
+.navbar-nav {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-link {
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--cor-destaque) !important;
+    transition: .3s;
+}
+
+.nav-link:hover {
+    color: #f7d983 !important;
+}
+
+/* Centralizar menu */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navmenu {
+    flex-grow: 1;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+@media (max-width: 992px) {
+    #navmenu {
+        justify-content: center !important;
+        text-align: center;
+    }
+
+    .navbar-nav {
+        gap: 15px !important;
+    }
+}
+
+/* ========================================= */
+/* 3. PAINÉIS DO SCROLL */
+/* ========================================= */
+
+#scroll-container {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--cor-primaria); /* fundo preto */
+}
+
+/* Painéis */
+.panel {
+    height: 100vh;
+    width: 100%;
+    padding-top: 140px;
+    text-align: center;
+    opacity: 0;
+    transform: scale(1.3);
+    transition: opacity .8s ease-out, transform .8s ease-out;
+    position: absolute; /* garante que não apareça fundo branco */
+    inset: 0;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto);
+}
+
+/* Estado ativo */
+.panel.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Animações */
+.panel.enter {
+    animation: suckIn 0.7s forwards ease-out;
+}
+
+.panel.exit {
+    animation: suckOut 0.7s forwards ease-in;
+}
+
+/* Keyframes ajustados para fundo sempre preto */
+@keyframes suckIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        filter: blur(12px);
+        background-color: var(--cor-primaria);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px);
+        background-color: var(--cor-primaria);
+    }
+}
+
+@keyframes suckOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px);
+        background-color: var(--cor-primaria);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+        filter: blur(12px);
+        background-color: var(--cor-primaria);
+    }
+}
+
+/* ========================================= */
+/* 4. TEXTOS */
+/* ========================================= */
+
+.text-gold {
+    color: var(--cor-destaque);
+    font-family: var(--fonte-titulo);
+    font-size: 3rem;
+    margin-bottom: 25px;
+}
+
+.panel p {
+    max-width: 900px;
+    margin: auto;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: var(--cor-texto-sec);
+}
+
+/* ========================================= */
+/* 5. IMAGENS */
+/* ========================================= */
+
+.panel-img {
+    width: 60%;
+    max-width: 650px;
+    margin: 25px auto 40px auto;
+    display: block;
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+/* ========================================= */
+/* 6. GRID DA EQUIPE */
+/* ========================================= */
+
+.chefs-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.chef-card {
+    background: var(--cor-secundaria);
+    padding: 15px;
+    width: 220px;
+    border-radius: 14px;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+    margin: auto;
+    transition: .3s;
+}
+
+.chef-card img {
+    width: 100%;
+    max-width: 180px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.chef-card h3 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-destaque);
+    margin-top: 10px;
+    font-size: 1.3rem;
+}
+
+.chef-card p {
+    color: var(--cor-texto-sec);
+    font-size: 0.95rem;
+    margin-top: 5px;
+}
+
+.chef-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.28);
+}
+
+
+.modal-chef {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    backdrop-filter: blur(5px);
+}
+
+.modal-chef.active {
+    display: flex;
+    animation: fadeIn .4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-chef-content {
+    background: #111;
+    padding: 25px;
+    width: 420px;
+    border-radius: 14px;
+    text-align: center;
+    border: 2px solid var(--cor-destaque);
+    box-shadow: 0 0 25px rgba(212, 175, 55, .4);
+}
+
+.modal-chef-content img {
+    width: 75%;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border: 1px solid var(--cor-destaque);
+}
+
+.modal-chef-content h2 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-destaque);
+    margin-bottom: 8px;
+}
+
+.modal-chef-content p {
+    color: var(--cor-texto-sec);
+    font-size: 1.1rem;
+}
+
+.close-chef {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 40px;
+    color: var(--cor-destaque);
+    cursor: pointer;
+}
+
+/* ========================================= */
+/* 8. AJUSTES NA GRID (FOTOS MAIORES) */
+/* ========================================= */
+
+.chefs-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px; /* fotos mais próximas */
+    margin-top: 20px;
+    padding: 0 40px;
+}
+
+.chef-card {
+    width: 270px; /* MAIS LARGO */
+    padding: 20px;
+}
+
+.chef-card img {
+    max-width: 220px; /* FOTO MAIOR */
+}
+
+
+.chef-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.chef-modal.active {
+    display: flex;
+    animation: fadeIn .3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.chef-modal-content {
+    background: #111;
+    border: 2px solid var(--cor-destaque);
+    border-radius: 14px;
+    padding: 25px;
+    width: 420px;
+    max-height: 85vh;
+    overflow-y: auto;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(212,175,55,0.4);
+}
+
+.chef-modal-content img {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid var(--cor-destaque);
+    margin-bottom: 15px;
+}
+
+.chef-close {
+    float: right;
+    font-size: 35px;
+    cursor: pointer;
+    color: var(--cor-destaque);
+}
+
+/* Fundo escurecido */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+    z-index: 999;
+}
+
+/* Quando abrir */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Caixa da biografia */
+.modal-content {
+    background: #111;
+    color: white;
+    padding: 25px;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 15px;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform .3s ease, opacity .3s ease;
+}
+
+/* animação quando abre */
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* botão fechar */
+.close-modal {
+    font-size: 22px;
+    cursor: pointer;
+    float: right;
+}
+
+
+.panel {
+    pointer-events: none;
+}
+
+.panel.active {
+    pointer-events: auto;
+}
+
+
+#chefModalNome {
+    color: var(--cor-destaque);
+    font-size: 1.8rem;
+    font-family: var(--fonte-titulo);
+    margin-bottom: 10px;
+}
+
+/* Textos principais mais claros e maiores */
+#chefModalIdade,
+#chefModalEspecialidade,
+#chefModalHistoria {
+    color: #eaeaea !important;   /* quase branco → mais visível */
+    font-size: 1.25rem;           /* aumenta a leitura */
+    line-height: 1.6;
+}
+
+/* Subtítulo "História" */
+.chef-modal-content h3 {
+    color: var(--cor-destaque);
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+/* Fundo mais suave e menos escuro */
+.chef-modal-content {
+    background: #121212 !important;
+}
+
+/* A imagem fica mais destacada */
+.chef-modal-content img {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.45);
+}
+
+
+/* ===== NAVBAR SEM HAMBÚRGUER NO MOBILE ===== */
+@media (max-width: 768px) {
+
+  .navbar .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 8px !important;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
+  }
+
+  /* Busca e carrinho embaixo */
+  #searchInput,
+  .dropdown,
+  .dropdown button {
+    width: 100%;
+  }
+
+}

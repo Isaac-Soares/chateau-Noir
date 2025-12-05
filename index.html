@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chateau Noir - Gastronomia Francesa</title>
+    <link rel="icon" href="/logo.png" type="image/x-icon">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+</head>
+<body>
+
+<!-- ====================== NAVBAR ====================== -->
+<nav id="navbar" class="navbar navbar-expand fixed-top navbar-dark transparent-nav">
+
+    <div class="container">
+
+        <!-- LOGO + TEXTO (Voltar para home) -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="logo.png" alt="Logo" class="logo">
+            <span class="ms-2 logo-text">Chateau Noir</span>
+        </a>
+
+      
+
+        <!-- Menu Central -->
+        <div class="navbar-collapse justify-content-between">
+            <ul class="navbar-nav gap-4">
+                <li class="nav-item"><a href="/paginas/sobre.html" class="nav-link">Sobre</a></li>
+                <li class="nav-item"><a href="/paginas/cardapio.html" class="nav-link">Cardápio</a></li>
+                <li class="nav-item"><a href="/paginas/reserva.html" class="nav-link">Reserva</a></li>
+                <li class="nav-item"><a href="/paginas/fale.html" class="nav-link">Fale Conosco</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<!-- ====================== CARROSSEL ====================== -->
+<header>
+    <div id="carouselExample" class="carousel slide" >
+        <div class="carousel-inner">
+            <!-- Coloque as imagens em /assets e substitua aqui -->
+            <div class="carousel-item active">
+                <img src="img/destaque2.webp" class="d-block w-100 carousel-img" alt="Restaurante" alt="" loading="lazy" >
+            </div>
+            <div class="carousel-item">
+                <img src="img/destaque3.avif" class="d-block w-100 carousel-img" alt="Prato" alt="" loading="lazy" >
+            </div>
+            <div class="carousel-item">
+                <img src="img/destaque1.avif" class="d-block w-100 carousel-img" alt="Ambiente" alt="" loading="lazy" >
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ====================== HISTÓRIA ====================== -->
+<section id="historia" class="container my-5 py-4">
+    <h2 class="text-center text-gold mb-4">Nossa História</h2>
+    <p class="text-center" style="max-width: 800px; margin: auto;">
+        Fundado em 1990 no coração da cidade, o Château Noir nasceu da paixão pela gastronomia francesa tradicional e pelo desejo de oferecer experiências únicas. Inspirado nas brasseries parisienses, combinamos sofisticação e autenticidade em cada prato, sempre preparado com ingredientes frescos e técnicas refinadas.
+        <br><br>
+        Ao longo dos anos, nos tornamos referência em alta gastronomia, criando momentos especiais e memórias inesquecíveis para nossos clientes.
+    </p>
+</section>
+
+
+<hr>
+
+<!-- ====================== PRATO EM DESTAQUE ====================== -->
+<section class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <img src="img/lagosta.jpg" class="img-fluid rounded shadow" alt="Prato Destaque">
+        </div>
+
+        <div class="col-md-6">
+            <h2 class="text-gold">Lobster Royale ao Molho Velouté de Limão</h2>
+
+            <p>
+                Preparado com creme de limão artesanal, toque de manteiga clarificada e redução de vinho branco europeu,
+                finalizado com ervas frescas e notas delicadas de raspas de cítricos.
+                <br><br>
+                Um prato refinado, equilibrado e criado para realçar o sabor natural da lagosta.
+            </p>
+
+            <!-- BOTÃO QUE ABRE O MODAL DO QR-CODE -->
+            <button id="btn-ar" class="btn btn-outline-light text-gold mt-2">
+                Ver em Realidade Aumentada
+            </button>
+            <br><br>
+
+            <a href="/paginas/cardapio.html" class="btn btn-gold">Ver Mais Pratos</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================================= -->
+<!-- MODAL DO QR-CODE -->
+<!-- ========================================= -->
+
+<div id="modal-ar" class="modal-ar">
+    <div class="modal-content-ar">
+        <span id="close-ar" class="close-ar">&times;</span>
+
+        <h3 class="text-gold">Escaneie e veja em Realidade Aumentada</h3>
+
+        <!-- COLOQUE O NOME DO SEU QR-CODE AQUI -->
+        <img src="img/QR-code-prato.png" alt="QR Code" class="qr-img">
+    </div>
+</div>
+
+
+<!-- ========================================= -->
+<!-- SCRIPT DO MODAL -->
+<!-- ========================================= -->
+
+<script>
+const btnAR = document.getElementById("btn-ar");
+const modalAR = document.getElementById("modal-ar");
+const closeAR = document.getElementById("close-ar");
+
+btnAR.onclick = () => {
+    modalAR.style.display = "flex";
+};
+
+closeAR.onclick = () => {
+    modalAR.style.display = "none";
+};
+
+window.onclick = (event) => {
+    if (event.target === modalAR) {
+        modalAR.style.display = "none";
+    }
+};
+</script>
+
+<hr>
+
+<!-- ====================== AVALIAÇÕES ====================== -->
+<section class="container py-5">
+    <h2 class="text-center text-gold mb-4">Avaliações de Clientes</h2>
+
+    <div class="row text-center">
+        <div class="col-md-4 mb-3">
+            <div class="review-box p-4">
+                ⭐⭐⭐⭐⭐  
+                <p>"Melhor restaurante francês que já visitei! Atmosfera perfeita."</p>
+                <strong>- Camila Duarte</strong>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="review-box p-4">
+                ⭐⭐⭐⭐⭐  
+                <p>"Pratos impecáveis e atendimento elegante. Voltarei sempre."</p>
+                <strong>- Thiago Salazar</strong>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="review-box p-4">
+                ⭐⭐⭐⭐⭐  
+                <p>"Experiência gastronômica indescritível. Perfeito!"</p>
+                <strong>- Juliana Martins</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<!-- ====================== RODAPÉ ====================== -->
+<footer class="text-center py-4 mt-5">
+    <h4 class="text-gold mb-3">Château Noir</h4>
+    <p class="mb-1">Experiência gastronômica francesa desde 1990</p>
+
+    <p class="mb-1">
+        📍 Rua das Acácias, 1250 – Centro, São Paulo – SP
+    </p>
+    <p class="mb-1">
+        📧 contato@chateaunoirofficial.com
+    </p>
+    <p class="mb-3">
+        📞 (11) 3456-7890
+    </p>
+
+    <!-- ÍCONES -->
+  <div class="social-icons mb-3">
+    <a href="https://www.instagram.com" target="_blank" class="mx-2">
+        <i class="bi bi-instagram" style="font-size: 1.6rem;"></i>
+    </a>
+
+    <a href="https://web.whatsapp.com" target="_blank" class="mx-2">
+        <i class="bi bi-whatsapp" style="font-size: 1.6rem;"></i>
+    </a>
+
+    <a href="https://www.facebook.com/facebookBrasil" target="_blank" class="mx-2">
+        <i class="bi bi-facebook" style="font-size: 1.6rem;"></i>
+    </a>
+</div>
+
+    <hr class="my-3">
+
+    <p class="mb-0">© 2025 Château Noir – Todos os direitos reservados.</p>
+
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <a href="#topo" id="topo" class="btn btn-gold mt-3">Voltar ao topo</a>
+</footer>
+
+
+<!-- Bootstrap + JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

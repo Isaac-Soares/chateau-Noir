@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Château Noir - Cardápio</title>
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="/logo.png" type="image/x-icon">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/cardapio.css">
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
+<nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark transparent-nav">
+
+  <div class="container">
+
+    <a class="navbar-brand d-flex align-items-center" href="/index.html">
+      <img src="/logo.png" alt="Logo" class="logo">
+      <span class="ms-2 logo-text">Château Noir</span>
+    </a>
+
+   
+
+    <div class="navbar-collapse justify-content-between">
+
+      <!-- LINKS -->
+      <ul class="navbar-nav gap-4 mx-auto">
+        <li class="nav-item"><a href="/paginas/sobre.html" class="nav-link">Sobre</a></li>
+        <li class="nav-item"><a href="/paginas/cardapio.html" class="nav-link">Cardápio</a></li>
+        <li class="nav-item"><a href="/paginas/reserva.html" class="nav-link">Reserva</a></li>
+        <li class="nav-item"><a href="/paginas/fale.html" class="nav-link">Contato</a></li>
+      </ul>
+
+    <!-- 🔍 PESQUISA + 🛒 CARRINHO -->
+<div class="d-flex align-items-center gap-2">
+
+  <input 
+    type="text" 
+    id="searchInput" 
+    class="form-control form-control-sm"
+    placeholder="Pesquisar categoria..."
+  >
+
+  <div class="dropdown">
+    <button 
+      class="btn btn-warning btn-sm dropdown-toggle" 
+      data-bs-toggle="dropdown"
+    >
+      🛒 R$ <span id="cartTotal">0.00</span>
+    </button>
+
+    <ul class="dropdown-menu dropdown-menu-end p-3" style="min-width: 240px;">
+      <h6>Carrinho</h6>
+      <ul id="cartItems" class="list-unstyled"></ul>
+      <strong>Total: R$ <span id="cartTotalTexto">0.00</span></strong>
+      <button 
+        class="btn btn-dark btn-sm mt-2 w-100" 
+        onclick="toggleCarrinho()"
+      >
+        Finalizar Pedido
+      </button>
+    </ul>
+  </div>
+</div>
+
+<!-- MODAL DO CARRINHO / CHECKOUT -->
+<div id="carrinhoModal" class="prato-modal">
+  <div class="prato-modal-content">
+    <span class="prato-close" onclick="toggleCarrinho()">×</span>
+    <h2>Seu Pedido</h2>
+    <ul id="checkoutListaCarrinho"></ul>
+    <h3>Total: R$ <span id="checkoutTotalCarrinho">0.00</span></h3>
+    <button onclick="confirmarPedido()">Confirmar Pedido</button>
+  </div>
+</div>
+
+</nav>
+
+<!-- ========================= -->
+<!-- ENTRADAS -->
+<!-- ========================= -->
+<section class="menu-section" data-category="entrada">
+  <h1 class="text-gold">Entradas</h1>
+  <div class="menu-grid">
+
+    <div class="menu-card" onclick="openPrato('Bruschetta Italiana', 38, '/img/entradas/Bruschetta Italiana.jpg', 'Pão tostado com tomate e manjericão')">
+      <img src="/img/entradas/Bruschetta Italiana.jpg" class="prato-img">
+      <h3>Bruschetta Italiana</h3>
+      <p>R$ 38,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Carpaccio de Carne', 52, '/img/entradas/Carpaccio de Filé Mignon.jpg', 'Finas fatias de carne crua temperadas')">
+      <img src="/img/entradas/Carpaccio de Filé Mignon.jpg" class="prato-img">
+      <h3>Carpaccio de Carne</h3>
+      <p>R$ 52,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Bolinho de Bacalhau', 44, '/img/entradas/Bolinho de Bacalhau.jpg', 'Bolinhos crocantes de bacalhau')">
+      <img src="/img/entradas/Bolinho de Bacalhau.jpg" class="prato-img">
+      <h3>Bolinho de Bacalhau</h3>
+      <p>R$ 44,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Croquete de Presunto', 36, '/img/entradas/Croquete de Presunto.jpg', 'Croquete recheado com presunto')">
+      <img src="/img/entradas/Croquete de Presunto.jpg" class="prato-img">
+      <h3>Croquete de Presunto</h3>
+      <p>R$ 36,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Queijos Franceses', 58, '/img/entradas/Queijos Franceses.webp', 'Seleção premium de queijos')">
+      <img src="/img/entradas/Queijos Franceses.webp" class="prato-img">
+      <h3>Queijos Franceses</h3>
+      <p>R$ 58,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Tartar de Salmão', 62, '/img/entradas/Tartar de Salmã.webp', 'Salmão fresco temperado')">
+      <img src="/img/entradas/Tartar de Salmã.webp" class="prato-img">
+      <h3>Tartar de Salmão</h3>
+      <p>R$ 62,00</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================= -->
+<!-- PRATOS PRINCIPAIS -->
+<!-- ========================= -->
+<section class="menu-section" data-category="principal">
+  <h1 class="text-gold">Pratos Principais</h1>
+  <div class="menu-grid">
+
+    <div class="menu-card" onclick="openPrato('Lobster Royale', 189, '/img/lagosta.jpg', 'Lagosta ao molho velouté')">
+      <img src="/img/lagosta.jpg" class="prato-img">
+      <h3>Lobster Royale</h3>
+      <p>R$ 189,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Filet Mignon Bordeaux', 139, '/img/principais/filet.avif', 'Filet ao molho de vinho tinto')">
+      <img src="/img/principais/filet.avif" class="prato-img">
+      <h3>Filet Mignon Bordeaux</h3>
+      <p>R$ 139,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Risoto de Cogumelos', 92, '/img/principais/risoto.png', 'Risoto cremoso artesanal')">
+      <img src="/img/principais/risoto.png" class="prato-img">
+      <h3>Risoto de Cogumelos</h3>
+      <p>R$ 92,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Salmão Grelhado', 118, '/img/principais/salmao.jpg', 'Salmão grelhado ao ponto')">
+      <img src="/img/principais/salmao.jpg" class="prato-img">
+      <h3>Salmão Grelhado</h3>
+      <p>R$ 118,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Pato ao Molho de Laranja', 149, '/img/principais/pato.png', 'Pato assado com molho cítrico')">
+      <img src="/img/principais/pato.png" class="prato-img">
+      <h3>Pato ao Molho de Laranja</h3>
+      <p>R$ 149,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Ravioli de Trufas', 128, '/img/principais/ravioli.jpg', 'Ravioli recheado com trufas')">
+      <img src="/img/principais/ravioli.jpg" class="prato-img">
+      <h3>Ravioli de Trufas</h3>
+      <p>R$ 128,00</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================= -->
+<!-- SOBREMESAS -->
+<!-- ========================= -->
+<section class="menu-section" data-category="sobremesa">
+  <h1 class="text-gold">Sobremesas</h1>
+  <div class="menu-grid">
+
+    <div class="menu-card" onclick="openPrato('Petit Gâteau', 38, '/img/sobremesas/petit-gateau.avif', 'Bolo quente com chocolate')">
+      <img src="/img/sobremesas/petit-gateau.avif" class="prato-img">
+      <h3>Petit Gâteau</h3>
+      <p>R$ 38,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Crème Brûlée', 42, '/img/sobremesas/creme-brulee.jpg', 'Creme com crosta caramelizada')">
+      <img src="/img/sobremesas/creme-brulee.jpg" class="prato-img">
+      <h3>Crème Brûlée</h3>
+      <p>R$ 42,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Tarte Tatin', 46, '/img/sobremesas/tarte.avif', 'Torta de maçã caramelizada')">
+      <img src="/img/sobremesas/tarte.avif" class="prato-img">
+      <h3>Tarte Tatin</h3>
+      <p>R$ 46,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Cheesecake', 44, '/img/sobremesas/cheesecake.jpg', 'Cheesecake com frutas vermelhas')">
+      <img src="/img/sobremesas/cheesecake.jpg" class="prato-img">
+      <h3>Cheesecake</h3>
+      <p>R$ 44,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Mousse de Chocolate', 34, '/img/sobremesas/mousse.webp', 'Mousse artesanal de chocolate')">
+      <img src="/img/sobremesas/mousse.webp" class="prato-img">
+      <h3>Mousse de Chocolate</h3>
+      <p>R$ 34,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Sorvete Artesanal', 29, '/img/sobremesas/sorvete.webp', 'Sorvete natural caseiro')">
+      <img src="/img/sobremesas/sorvete.webp" class="prato-img">
+      <h3>Sorvete Artesanal</h3>
+      <p>R$ 29,00</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================= -->
+<!-- VINHOS -->
+<!-- ========================= -->
+<section class="menu-section" data-category="vinho">
+  <h1 class="text-gold">Vinhos</h1>
+  <div class="menu-grid">
+
+    <div class="menu-card" onclick="openPrato('Château Margaux', 490, '/img/vinhos/margaux.jpg', 'Vinho francês premium')">
+      <img src="/img/vinhos/margaux.jpg" class="prato-img">
+      <h3>Château Margaux</h3>
+      <p>R$ 490,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Petrus', 690, '/img/vinhos/petrus.jpg', 'Vinho tinto raro')">
+      <img src="/img/vinhos/petrus.jpg" class="prato-img">
+      <h3>Petrus</h3>
+      <p>R$ 690,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Barolo', 320, '/img/vinhos/barolo.jpg', 'Vinho italiano encorpado')">
+      <img src="/img/vinhos/barolo.jpg" class="prato-img">
+      <h3>Barolo</h3>
+      <p>R$ 320,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Chianti Classico', 240, '/img/vinhos/chianti.jpg', 'Chianti tradicional')">
+      <img src="/img/vinhos/chianti.jpg" class="prato-img">
+      <h3>Chianti Classico</h3>
+      <p>R$ 240,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Bordeaux', 280, '/img/vinhos/bordeaux.jpg', 'Vinho francês seco')">
+      <img src="/img/vinhos/bordeaux.jpg" class="prato-img">
+      <h3>Bordeaux</h3>
+      <p>R$ 280,00</p>
+    </div>
+
+    <div class="menu-card" onclick="openPrato('Brunello', 380, '/img/vinhos/brunello.jpg', 'Brunello di Montalcino')">
+      <img src="/img/vinhos/brunello.jpg" class="prato-img">
+      <h3>Brunello</h3>
+      <p>R$ 380,00</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================= -->
+<!-- BEBIDAS -->
+<!-- ========================= -->
+<section class="menu-section" data-category="bebidas">
+  <h1 class="text-gold">Bebidas</h1>
+  <div class="menu-grid">
+
+    <div class="menu-card">
+      <img src="/img/bebidas/suco.jpg" class="prato-img" id="sucoImg">
+      <h3 id="sucoNome">Suco de Uva</h3>
+      <select onchange="trocarSuco(this.value)">
+        <option value="Uva">Uva</option>
+        <option value="Laranja">Laranja</option>
+        <option value="Abacaxi">Abacaxi</option>
+        <option value="Morango">Morango</option>
+      </select>
+      <button onclick="addToCart(document.getElementById('sucoNome').innerText, 18)">Adicionar</button>
+    </div>
+
+    <div class="menu-card">
+      <img src="/img/bebidas/refri.jpg" class="prato-img" id="refriImg">
+      <h3 id="refriNome">Coca-Cola</h3>
+      <select onchange="trocarRefri(this.value)">
+        <option>Coca-Cola</option>
+        <option>Guaraná</option>
+        <option>Sprite</option>
+      </select>
+      <button onclick="addToCart(document.getElementById('refriNome').innerText, 12)">Adicionar</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================= -->
+<!-- MODAL DO PRATO -->
+<!-- ========================= -->
+<div id="pratoModal" class="prato-modal">
+  <div class="prato-modal-content">
+    <span class="prato-close" onclick="fecharModal()">&times;</span>
+    <img id="modalImg">
+    <h2 id="modalNome"></h2>
+    <p id="modalDesc"></p>
+    <h3 id="modalPreco"></h3>
+    <button onclick="addToCartModal()">Adicionar ao Carrinho</button>
+  </div>
+</div>
+
+<!-- ========================= -->
+<!-- MODAL CHECKOUT -->
+<!-- ========================= -->
+<div id="checkoutModal" class="prato-modal">
+  <div class="prato-modal-content">
+    <span class="prato-close" onclick="fecharCheckout()">&times;</span>
+    <h2>Resumo do Pedido</h2>
+    <ul id="checkoutLista"></ul>
+    <h3>Total: R$ <span id="checkoutTotal"></span></h3>
+    <button onclick="confirmarPedido()">Confirmar Pedido</button>
+  </div>
+</div>
+
+<div id="carrinhoModal" class="prato-modal">
+  <div class="prato-modal-content">
+    
+    <span class="prato-close" onclick="toggleCarrinho()">×</span>
+
+    <h2>Seu Pedido</h2>
+
+    <ul id="checkoutLista"></ul>
+
+    <h3>Total: R$ <span id="checkoutTotal">0.00</span></h3>
+
+    <button onclick="confirmarPedido()">Confirmar Pedido</button>
+
+  </div>
+</div>
+
+
+
+
+<!-- JS -->
+<script src="/js/cardapio.js"></script>
+
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

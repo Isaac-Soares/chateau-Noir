@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva - Château Noir</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="/logo.png" type="image/x-icon">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <!-- CSS principal do site -->
+    <link rel="stylesheet" href="/css/reserva.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+<!-- ====================== NAVBAR ====================== -->
+<nav id="navbar" class="navbar navbar-expand fixed-top navbar-dark transparent-nav">
+
+    <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center" href="/index.html">
+            <img src="/logo.png" alt="Logo" class="logo">
+            <span class="ms-2 logo-text">Chateau Noir</span>
+        </a>
+
+       
+
+       <div class="navbar-collapse justify-content-between">
+            <ul class="navbar-nav gap-4">
+                <li class="nav-item"><a href="/paginas/sobre.html" class="nav-link">Sobre</a></li>
+                <li class="nav-item"><a href="/paginas/cardapio.html" class="nav-link">Cardápio</a></li>
+                <li class="nav-item"><a href="/paginas/reserva.html" class="nav-link active">Reserva</a></li>
+                <li class="nav-item"><a href="/paginas/fale.html" class="nav-link">Fale Conosco</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br><br><br><br><br>
+
+<div id="reservaModal" class="modal-ar">
+  <div class="modal-content-ar">
+    <span id="closeReserva" class="close-ar">&times;</span>
+    <h3 class="text-gold">Reserva Confirmada!</h3>
+    <p>Sua mesa foi reservada com sucesso. Em breve entraremos em contato.</p>
+  </div>
+</div>
+
+<!-- ====================== RESERVA ====================== -->
+<section class="container my-5">
+    <div class="row align-items-center g-5">
+
+        <!-- FORMULÁRIO -->
+        <div class="col-lg-6">
+            <h2 class="text-gold mb-4">Reserva de Mesa</h2>
+            <p class="mb-4">
+                Reserve sua mesa no Château Noir e viva uma experiência única da alta gastronomia francesa.
+            </p>
+
+            <div class="p-4 rounded shadow review-box">
+                <form id="formReserva">
+
+                    <div class="mb-3">
+                        <label class="form-label">Nome Completo</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Telefone</label>
+                        <input type="tel" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Data</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Horário</label>
+                        <input type="time" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Quantidade de Pessoas</label>
+                        <select class="form-control" required>
+                            <option value="">Selecione</option>
+                            <option>1 Pessoa</option>
+                            <option>2 Pessoas</option>
+                            <option>3 Pessoas</option>
+                            <option>4 Pessoas</option>
+                            <option>5+ Pessoas</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Observações (opcional)</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-gold w-100">
+                        Confirmar Reserva
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- MAPA -->
+        <div class="col-lg-6 text-center">
+            <h2 class="text-gold mb-4">Nossa Localização</h2>
+
+            <div class="map-container-square">
+               <iframe 
+                    src="https://www.google.com/maps?q=Rua das Acácias, 1250 - São Paulo&output=embed"
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+      
+
+    </div>
+</section>
+
+<!-- ====================== RODAPÉ ====================== -->
+<footer id="contato" class="text-center py-4 mt-5">
+    <h4 class="text-gold mb-3">Château Noir</h4>
+
+    <p>📍 Rua das Acácias, 1250 – Centro, São Paulo – SP</p>
+    <p>📧 contato@chateaunoirofficial.com</p>
+    <p>📞 (11) 3456-7890</p>
+
+    <div class="social-icons mb-3">
+        <a href="https://www.instagram.com" target="_blank" class="mx-2">
+            <i class="bi bi-instagram"></i>
+        </a>
+        <a href="https://web.whatsapp.com" target="_blank" class="mx-2">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+        <a href="https://www.facebook.com/facebookBrasil" target="_blank" class="mx-2">
+            <i class="bi bi-facebook"></i>
+        </a>
+    </div>
+
+    <hr>
+
+    <p>© 2025 Château Noir – Todos os direitos reservados.</p>
+</footer>
+<script src="/js/reserva.js"></script>
+</body>
+</html>

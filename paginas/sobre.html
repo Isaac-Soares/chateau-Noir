@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Château Noir - Sobre</title>
+    <link rel="icon" href="/logo.png" type="image/x-icon">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="/css/sobre.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- MODAL DOS CHEFS (ÚNICO) -->
+<!-- ========================= -->
+<div id="chefModal" class="chef-modal">
+    <div class="chef-modal-content">
+        <span class="chef-close" onclick="closeChefModal()">&times;</span>
+
+        <img id="chefModalImg" src="" alt="Foto do Chef">
+
+        <h2 id="chefModalNome"></h2>
+        <p id="chefModalIdade"></p>
+        <p id="chefModalEspecialidade"></p>
+
+        <h3>História</h3>
+        <p id="chefModalHistoria"></p>
+    </div>
+</div>
+
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
+<nav id="navbar" class="navbar navbar-expand fixed-top navbar-dark transparent-nav">
+
+    <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+            <img src="../logo.png" alt="Logo" class="logo">
+            <span class="ms-2 logo-text">Chateau Noir</span>
+        </a>
+
+       
+
+        <div class="navbar-collapse justify-content-between">
+            <ul class="navbar-nav gap-4">
+                <li class="nav-item"><a href="sobre.html" class="nav-link active">Sobre</a></li>
+                <li class="nav-item"><a href="/paginas/cardapio.html" class="nav-link">Cardápio</a></li>
+                <li class="nav-item"><a href="/paginas/reserva.html" class="nav-link">Reserva</a></li>
+                <li class="nav-item"><a href="/paginas/fale.html" class="nav-link">Fale Conosco</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ========================= -->
+<!-- CONTAINER DE PAINÉIS -->
+<!-- ========================= -->
+<div id="scroll-container">
+
+    <!-- HISTÓRIA -->
+    <section class="panel active" id="historia">
+        <h1 class="text-gold">Nossa História</h1>
+        <img src="/img/destaque2.webp" class="panel-img" alt="Foto do Restaurante">
+
+        <p>
+            Fundado em 1990 no coração da cidade, o Château Noir nasceu do amor pela
+            culinária francesa clássica...
+        </p>
+    </section>
+
+    <!-- MISSÃO -->
+    <section class="panel">
+        <h1 class="text-gold">Missão</h1>
+        <img src="/img/cozinhando.avif" class="panel-img" alt="Missão do Restaurante">
+        <p>
+            Nossa missão é proporcionar experiências gastronômicas únicas...
+        </p>
+    </section>
+
+    <!-- VISÃO -->
+    <section class="panel">
+        <h1 class="text-gold">Visão</h1>
+        <img src="/img/ervindo.webp" class="panel-img" alt="Visão do Restaurante">
+        <p>
+            Ser reconhecido como o restaurante francês de referência na cidade...
+        </p>
+    </section>
+
+    <!-- VALORES -->
+    <section class="panel">
+        <h1 class="text-gold">Valores</h1>
+        <img src="/img/destaque3.avif" class="panel-img" alt="Valores do Restaurante">
+        <p>
+            ✔ Paixão pela gastronomia<br>
+            ✔ Excelência e qualidade<br>
+            ✔ Hospitalidade<br>
+            ✔ Sustentabilidade
+        </p>
+    </section>
+
+    <!-- INTRO EQUIPE -->
+    <section class="panel">
+        <h1 class="text-gold">Nossa Equipe</h1>
+        <p style="max-width: 800px; font-size: 1.2rem;">
+            Nossa equipe é composta por chefs renomados...
+        </p>
+    </section>
+
+    <!-- ========================= -->
+    <!-- EQUIPE – GRUPO 1 -->
+    <!-- ========================= -->
+    <section class="panel">
+        <h1 class="text-gold">Equipe - Château Noir</h1>
+
+        <div class="chefs-grid">
+
+            <!-- CHEF 1 -->
+            <div class="chef-card"
+                onclick="openChefModal(
+                    '/img/chefe1.jpg',
+                    'Chef Antoine Morell',
+                    '55 anos',
+                    'Gastronomia francesa clássica e alta cozinha',
+                    'Cresceu em Lyon e estudou na tradicional escola Le Cordon Bleu. Trabalhou em restaurantes Michelin antes de assumir a cozinha do Château Noir.'
+                )">
+                <img src="/img/chefe1.jpg">
+                <h3>Chef Antoine Morell</h3>
+                <p>Gastronomia francesa clássica.</p>
+            </div>
+
+            <!-- CHEF 2 -->
+            <div class="chef-card"
+                onclick="openChefModal(
+                    '/img/chefe11.jpg',
+                    'Chef Marcel Girard',
+                    '49 anos',
+                    'Pâtisserie e confeitaria fina',
+                    'Reconhecido mundialmente por suas técnicas de confeitaria francesa moderna e pela precisão no preparo de doces finos.'
+                )">
+                <img src="/img/chefe11.jpg">
+                <h3>Chef Marcel Girard</h3>
+                <p>Pâtisserie e confeitaria.</p>
+            </div>
+
+            <!-- CHEF 3 -->
+            <div class="chef-card"
+                onclick="openChefModal(
+                    '/img/chef3.jpg',
+                    'Chef Valentina Duvier',
+                    '38 anos',
+                    'Culinária contemporânea',
+                    'Une sabores mediterrâneos a técnicas clássicas francesas, criando pratos únicos e sofisticados.'
+                )">
+                <img src="/img/chef3.jpg">
+                <h3>Chef Valentina Duvier</h3>
+                <p>Fusão contemporânea.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- EQUIPE – GRUPO 2 -->
+    <!-- ========================= -->
+    <section class="panel">
+        <h1 class="text-gold">Equipe - Château Noir</h1>
+
+        <div class="chefs-grid">
+
+            <!-- CHEF 4 -->
+            <div class="chef-card"
+                onclick="openChefModal(
+                    '/img/Sommelier1.jpg',
+                    'Sommelier Diego Arrebola',
+                    '41 anos',
+                    'Especialista em vinhos europeus',
+                    'Considerado um dos maiores sommeliers do Brasil, com vasta experiência em harmonizações internacionais.'
+                )">
+                <img src="/img/Sommelier1.jpg">
+                <h3>Sommelier Diego Arrebola</h3>
+                <p>Sommelier especialista.</p>
+            </div>
+
+            <!-- CHEF 5 -->
+            <div class="chef-card"
+                onclick="openChefModal(
+                    '/img/chefe3.jpg',
+                    'Chef Serena Delacroix',
+                    '46 anos',
+                    'Carnes nobres e fogo',
+                    'Especialista em cortes premium e técnicas francesas de grelha.'
+                )">
+                <img src="/img/chefe3.jpg">
+                <h3>Chef Serena Delacroix</h3>
+                <p>Especialista em carnes.</p>
+            </div>
+
+            <!-- CHEF 6 -->
+            <div class="chef-card"
+                onclick="openChefModal(
+                    '/img/sommelier2.avif',
+                    'Sommelier Nicole Rousseau',
+                    '34 anos',
+                    'Vinhos franceses e italianos',
+                    'Trabalhou em diversas vinícolas da França e Itália, trazendo ao Château Noir uma visão refinada sobre harmonização.'
+                )">
+                <img src="/img/sommelier2.avif">
+                <h3>Sommelier Nicole Rousseau</h3>
+                <p>Sommelier internacional.</p>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<script src="/js/sobre.js"></script>
+
+</body>
+</html>

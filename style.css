@@ -1,0 +1,248 @@
+/* ========================================= */
+/* 1. PALETA DE CORES E TIPOGRAFIA */
+/* ========================================= */
+
+:root {
+    --cor-primaria: #0b0b0b;
+    --cor-secundaria: #1a1a1a;
+    --cor-destaque: #D4AF37;
+    --cor-texto: #f5f5f5;
+    --cor-texto-sec: #b8b8b8;
+
+    --fonte-titulo: 'Playfair Display', serif;
+    --fonte-corpo: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto);
+    font-family: var(--fonte-corpo);
+    overflow-x: hidden;
+}
+
+/* ========================================= */
+/* 2. NAVBAR */
+/* ========================================= */
+
+.navbar {
+    padding: 20px 0;
+    transition: all .4s ease;
+    display: flex;
+    align-items: center;
+}
+
+.transparent-nav {
+    background: transparent !important;
+    box-shadow: none;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.88) !important;
+    backdrop-filter: blur(6px);
+    padding: 10px 0;
+}
+
+/* Logo maior */
+.logo {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+/* Texto da logo */
+.logo-text {
+    font-family: var(--fonte-titulo);
+    font-size: 2.2rem;
+    color: var(--cor-destaque);
+    letter-spacing: 2px;
+    margin-left: 10px;
+}
+
+/* ----- LINKS DA NAVBAR ----- */
+.navbar-nav {
+    display: flex;
+    gap: 35px;
+    margin-left: 45px; /* Aproxima da logo */
+}
+
+.nav-link {
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--cor-destaque) !important;
+    transition: .3s;
+}
+
+.nav-link:hover {
+    color: #f7d983 !important;
+}
+
+/* Centralizar horizontalmente */
+.navbar-collapse {
+    display: flex;
+    align-items: center;
+}
+
+/* ========================================= */
+/* 3. CARROSSEL */
+/* ========================================= */
+
+.carousel-img {
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* ========================================= */
+/* 4. TÍTULOS E BOTÕES */
+/* ========================================= */
+
+.text-gold {
+    color: var(--cor-destaque);
+}
+
+.btn-gold {
+    background: var(--cor-destaque);
+    color: black;
+    border: none;
+    padding: 12px 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.btn-gold:hover {
+    background: transparent;
+    color: var(--cor-destaque);
+    border: 1px solid var(--cor-destaque);
+}
+
+.btn-outline-light.text-gold {
+    border: 1px solid var(--cor-destaque);
+    padding: 10px 25px;
+}
+
+.btn-outline-light.text-gold:hover {
+    background: var(--cor-destaque);
+    color: black !important;
+}
+
+/* ========================================= */
+/* 5. PRATO DESTAQUE */
+/* ========================================= */
+
+.rounded {
+    border-radius: 10px;
+}
+
+/* ========================================= */
+/* 6. AVALIAÇÕES */
+/* ========================================= */
+
+.review-box {
+    background: var(--cor-secundaria);
+    border-left: 3px solid var(--cor-destaque);
+    border-radius: 8px;
+    color: var(--cor-texto-sec);
+    transition: .3s;
+}
+
+.review-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* ========================================= */
+/* 7. FOOTER */
+/* ========================================= */
+
+footer {
+    background: var(--cor-secundaria);
+    color: var(--cor-texto-sec);
+}
+
+footer .text-gold {
+    font-size: 1.3rem;
+}
+
+.social-icons a {
+    color: var(--cor-destaque);
+    transition: .3s;
+}
+
+.social-icons a:hover {
+    color: white;
+}
+
+#topo {
+    font-size: .9rem;
+    padding: 8px 20px;
+}
+
+/* ========================================= */
+/* 8. ANIMAÇÕES */
+/* ========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.modal-ar {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content-ar {
+    background: #111;
+    border: 2px solid #d4af37;
+    padding: 25px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    color: #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.close-ar {
+    float: right;
+    cursor: pointer;
+    font-size: 28px;
+    color: #d4af37;
+}
+
+.qr-img {
+    width: 200px;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+/* ===== NAVBAR SEM HAMBÚRGUER NO MOBILE ===== */
+@media (max-width: 768px) {
+
+  .navbar .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 8px !important;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
+  }
+
+  /* Busca e carrinho embaixo */
+  #searchInput,
+  .dropdown,
+  .dropdown button {
+    width: 100%;
+  }
+
+}
